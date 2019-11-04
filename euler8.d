@@ -26,14 +26,16 @@ string x =
 long max = 0L;
 
 for (int i = 0; i < x.length - 12; i++){
+	//Get slice
 string digits = x[i..(i + 13)];
 long current = 1L;
+	//Range for over slice
 	foreach(char dig; digits)
-		current *= (cast(long) dig - cast(long) '0');
-	
+		//Get char with casting operation
+		current *= (cast(long) dig - cast(long) '0');	
 if (current > max) max = current;
 }
-
+	
 writeln(max);
 
 }
