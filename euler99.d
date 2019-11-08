@@ -8,7 +8,7 @@ that didn't work for some reason)
 import std.stdio, std.range,
 std.conv, std.string, std.math;
 void main(){
-	auto numbers = File("base_exp.bin", "r");
+	auto numbers = File("base_exp.txt", "r");
 	real max = 0;
 	auto lines = numbers.byLine();
 	int linecnt = 1;
