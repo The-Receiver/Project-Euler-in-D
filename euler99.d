@@ -1,9 +1,7 @@
 //compile with dmd -J. euler99.d
 /* Goals for later reimplementation 
-
-Clean up line count (Was going to do it with a foreach loop but
+Clean up tracking of line count (Was going to do it with a foreach loop but
 that didn't work for some reason)
-
 */
 import std.stdio, std.range,
 std.conv, std.string, std.math;
