@@ -1,26 +1,20 @@
+
 import std.stdio, std.string, std.range, std.math;
 //using hashmaps and unit tests
 void main(){
-
 	auto numbers = File("roman.txt", "r");
 	int tally = 0L;
 	foreach(line; numbers.byLine())
 		tally += line.length - romanlen(romantodec(cast(string)line));
 
-writeln(tally);
+	writeln(tally);
 }
 
-unittest {
-assert(romanlen(6) == 2);
-assert(romantodec("VI") == 6);
-assert(romanlen(romantodec("IV")) == 2);
-}
-
-int  romantodec(string romans){
+int romantodec(string romans){
 	int[char] values = [
-		'I':1,
+		'I': 1,
 		'V': 5,
-		'X':10,
+		'X': 10,
 		'L': 50,
 		'C': 100,
 		'D': 500,
@@ -28,16 +22,15 @@ int  romantodec(string romans){
 	];
 
 	int sum = 0;
-	foreach(long i; 0 .. romans.length -  1){
+	foreach(int i, char firstk; romans[0 .. ($ - 1)]){
 
-		int first = values[romans[i]];
+		int first = values[firstk];
 		int next = values[romans[i+1]];
 
 		if(next <= first) sum += first;
 		else sum -= first;
 	}
-		sum += values[romans[$ - 1]];
-		return sum;
+	return sum + values[romans[$ - 1]];
 }
 
 int romanlen(int dec){
@@ -54,6 +47,3 @@ foreach(int index, int numeral; values){
 return length;
 
 }
-
-
-
